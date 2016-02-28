@@ -1,0 +1,20 @@
+Installed PlugIns
+
+1. Pathogen
+2. Vim-colorschemes
+3. Surround
+4. Commentary
+5. Auto-Pairs
+6. Syntastic
+7. Nerdtree
+8. Supertab
+9. Snipmate
+10. EasyMotion
+
+
+
+Future PlugIns:
+
+1. You Complete Me - won't work with Syntastic
+2. Airline or Powerline - Had problems installing before
+
