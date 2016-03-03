@@ -9,11 +9,18 @@ set history=100
 " Enable Pathogen
 execute pathogen#infect()
 
-" Set path for Vim colors plugin
-set runtimepath+=~/.vim/colors    " add additional path to runtimepath
+" Set path for locating Vim colors in Linux
+if [ -d "~/.vim" ]  then
+    set runtimepath+=~/.vim/colors    
+fi
+
+" Set path for locating Vim colors in Windows
+if [ -d "~/vimfiles" ] then
+    set runtimepath+=~/vimfiles/colors
+fi
 
 " Filetype detection[ON] plugin[ON] indent[ON]
-filetype plugin indent on         " filetype detection[ON] plugin[ON] indent[ON]
+filetype plugin indent on  
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -34,8 +41,8 @@ set showcmd
 " Don't wrap text
 set nowrap
 
-" preserves TABS when copying and pasting
-set paste
+" preserves TABS when copying and pasting (Messes up some plugins)
+"set paste
 
 " Always show current position
 set ruler
@@ -44,7 +51,7 @@ set ruler
 set cmdheight=2
 
 " Show matching [{()}] when cursor is over
-set showmatch
+"set showmatch
 
 " Search as characters are entered
 set incsearch
@@ -81,7 +88,7 @@ set t_Co=256
 syntax enable
 
 " Set colorscheme (:colorscheme Space+Ctrl+d will list available schemes)
-colorscheme mango                
+colorscheme badwolf
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -91,8 +98,8 @@ colorscheme mango
 set expandtab
 
 " 1 TAB == 4 spaces
-set tabstop=4                     " number of visual spaces per TAB
-set shiftwidth=4                  " indent/outdent by 4 columns
+set tabstop=4  
+set shiftwidth=4             
 
 " Use TABS at the start of a line, spaces everywhere else
 set smarttab
@@ -101,7 +108,7 @@ set smarttab
 set softtabstop=4   
 
 " Auto indent from previous line
-set autoindent                    " auto indent from previous line
+set autoindent  
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keyboard mappings
@@ -109,9 +116,9 @@ set autoindent                    " auto indent from previous line
 
 " MapLeader is a comma 
 let mapleader = ","
-"let g:mapleader = ","
+let g:mapleader = ","
 
-" Turn off search highlighting
+" Turn off highlighted search results (same as :nohl)
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Save session
