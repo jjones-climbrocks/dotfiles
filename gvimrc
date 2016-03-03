@@ -10,7 +10,7 @@ set history=100
 execute pathogen#infect()
 
 " Set path for locating Vim colors in Linux
-set runtimepath+=~/.vim/colors    
+set runtimepath+=~/vimfiles/colors    
 
 " Filetype detection[ON] plugin[ON] indent[ON]
 filetype plugin indent on  
