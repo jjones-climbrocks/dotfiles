@@ -11,16 +11,6 @@ files="bashrc vimrc gvimrc"       # list of files/folders to symlink in homedir
 
 ##########
 
-# create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
-
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
-echo "...done"
-
 # determine if we are running in Linux or Windows
 if [ -d ~/.vim ] 
 then    
