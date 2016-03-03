@@ -7,7 +7,6 @@
 ########## Variables
 
 dir=~/dotfiles                    # dotfiles directory
-olddir=~/dotfiles_old             # old dotfiles backup directory
 files="bashrc vimrc gvimrc"       # list of files/folders to symlink in homedir
 
 ##########
@@ -22,34 +21,37 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# determine if we are running in Linux or Windows
+if [ -d ~/.vim ] 
+then    
+    echo "...Setting things up for Linux"
+    os=linux
+else
+    echo "...Setting things up for Windows"
+    os=win
+fi
+
+# create symlinks 
 for file in $files; do
     
     # for Linux
-    if [ -d ~/.vim ]
+    if [ $os = "linux"  ]
     then
         if [ $file != "gvimrc" ]
-	then
-	    echo "Moving any existing dotfiles from ~ to $olddir"
-            mv ~/.$file ~/dotfiles_old/
-            echo "Creating symlink to $file in home directory."
+	    then
+            echo "Creating symlink to new the $file in $dir"
             ln -s $dir/$file ~/.$file
-	fi
+	    fi
     fi
     
-	echo "I am in the loop"
-	echo $file $dir
-
     # for Windows
-    if [ -d ~/vimfiles ]
+    if [ $os = "win" ]
     then
     	if [ $file != "vimrc" ]
-	then
-            echo "Moving any existing _dotfiles from ~ to $olddir"
-            mv ~/_$file ~/dotfiles_old/
-            echo "Creating symlink to $file in home directory."
+	    then
+            echo "Creating symlink to new new $file in $dir"
             ln -s $dir/$file ~/_$file
-	fi
+	    fi
     fi
 
 done
