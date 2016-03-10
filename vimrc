@@ -111,6 +111,10 @@ set autoindent
 let mapleader = ","
 let g:mapleader = ","
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Normal Mode Keyboard mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Turn off highlighted search results (same as :nohl)
 nnoremap <leader><space> :nohlsearch<CR>
 
@@ -119,6 +123,21 @@ nnoremap <leader>s :mksession<CR>
 
 " Calls function NumberToggle()
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" Disable arrow keys (force me to use hjkl)
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+
+
+
+
+
+" Remap the <ESC>>
+inoremap jj <ESC>
+
+
 
 
 "nnoremap <space> za                     " space bar opens/closes folds
